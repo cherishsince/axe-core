@@ -112,4 +112,17 @@ describe('axe.utils.getScroll', function() {
 			assert.hasAllKeys(actual, ['elm', 'top', 'left']);
 		});
 	});
+
+	describe.only('try some tests for CI', function() {
+		it('returns undefined when content fits but element overflow is scroll', function() {
+			var target = queryFixture(
+				'<p id="target" style="width: 12em; height: 2em; border: dotted; overflow: scroll;">' +
+					'Sed.' +
+					'</p>'
+			);
+			var actual = axe.utils.getScroll(target.actualNode);
+			assert.isDefined(actual);
+			assert.hasAllKeys(actual, ['elm', 'top', 'left']);
+		});
+	});
 });
