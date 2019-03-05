@@ -121,8 +121,7 @@ describe('axe.utils.getScroll', function() {
 					'</p>'
 			);
 			var actual = axe.utils.getScroll(target.actualNode);
-			assert.isDefined(actual);
-			assert.hasAllKeys(actual, ['elm', 'top', 'left']);
+			assert.isUndefined(actual);
 		});
 	});
 });
